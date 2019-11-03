@@ -6,23 +6,23 @@ import {environment} from '../../environments/environment';
 import {ProfileRequestService} from '../profile-request';
 import { user } from '../user';
 import { AlertService } from '../alert-service';
-import { DOCUMENT } from '@angular/platform-browser';
+import { Document } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css'],
   providers: [ GithubService, ProfileRequestService, AlertService]
 })
-export class DashboardComponent implements OnInit {
-  userName = 'peter-wachira';
+export class NavbarComponent implements OnInit {
+  userName = 'abdikeem';
   repos: repositories[];
   users: user[];
 
   loading = false;
   errorMessage;
   windowScrolled: boolean;
-  constructor( private githubService: GithubService, private profileRequest: ProfileRequestService, private alertService: AlertService, @Inject(DOCUMENT) private document: Document ) {
+  constructor( private githubService: GithubService, private profileRequest: ProfileRequestService, private alertService: AlertService, @Inject(Document) private document: Document ) {
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -46,7 +46,7 @@ public getRepos(event: any) {
   this.loading = true;
   let promise = new Promise((resolve , reject) => {
    this.githubService.getRepos (this.userName).toPromise().then(response => {
-     this.repos = response; this.loading = false;]
+     this.repos = response; this.loading = false;
       resolve();
     },
     error => {

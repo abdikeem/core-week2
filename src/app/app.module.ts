@@ -1,20 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { git-hub.service } from './git-hub.service';
+import {ProfileRequest} from './profile-request';
+import { RouterModule, Routes } from '@angular/router';
+import { alertservice } from './alert-service';
+
+const routes: Routes = [
+  
+];
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
+
   ],
-  providers: [],
+  // providers: [ GithubService, ProfileRequestService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

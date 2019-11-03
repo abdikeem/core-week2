@@ -1,7 +1,8 @@
-// tslint:disable-next-line:import-blacklist
+import { Observable} from 'rxjs';
 import { repositories} from '../repositories';
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { GithubService } from '../git-hub-service';
+import {environment} from '../../environments/environment';
 import {ProfileRequestService} from '../profile-request';
 import { user } from '../user';
 import { AlertService } from '../alert-service';
@@ -21,7 +22,6 @@ export class DashboardComponent implements OnInit {
   loading = false;
   errorMessage;
   windowScrolled: boolean;
-  // tslint:disable-next-line:max-line-length
   constructor( private githubService: GithubService, private profileRequest: ProfileRequestService, private alertService: AlertService, @Inject(DOCUMENT) private document: Document ) {
   }
   @HostListener('window:scroll', [])
@@ -42,26 +42,11 @@ export class DashboardComponent implements OnInit {
           })();
       }
 
-
-  //   options = {
-  //   title: 'Are you sure?',
-  //   text: 'You won\'t be able to revert this!',
-  //   type: 'warning',
-  //   showCancelButton: true,
-  //   confirmButtonColor: '#3085d6',
-  //   cancelButtonColor: '#d33',
-  //   confirmButtonText: 'Yes, delete it!'
-  // };
-
-
-
-
 public getRepos(event: any) {
   this.loading = true;
-  // tslint:disable-next-line:prefer-const
   let promise = new Promise((resolve , reject) => {
    this.githubService.getRepos (this.userName).toPromise().then(response => {
-     this.repos = response; this.loading = false; // this will push all data to array [repo]
+     this.repos = response; this.loading = false;]
       resolve();
     },
     error => {
@@ -74,10 +59,9 @@ public getRepos(event: any) {
 }
 public getUsers(event: any) {
   this.loading = true;
-  // tslint:disable-next-line:prefer-const
   let promise = new Promise((resolve , reject) => {
    this.profileRequest.getUsers(this.userName).toPromise().then(response => {
-     this.users = response; this.loading = false; // this will push all data to array [repo]
+     this.users = response; this.loading = false;
       resolve();
     },
     error => {

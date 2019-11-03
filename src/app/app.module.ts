@@ -1,15 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
-
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { git-hub.service } from './git-hub.service';
-import {ProfileRequest} from './profile-request';
+import { GithubService } from './git-hub-service'
+import {ProfileRequestService} from './profile-request';
 import { RouterModule, Routes } from '@angular/router';
-import { alertservice } from './alert-service';
+import { AlertService } from './alert-service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   
@@ -17,6 +16,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,8 +26,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
 
   ],
-  // providers: [ GithubService, ProfileRequestService],
 
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,16 +1,13 @@
-import { Observable} from 'rxjs';
 import { repositories} from '../repositories';
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { GithubService } from '../git-hub-service';
-import {environment} from '../../environments/environment';
 import {ProfileRequestService} from '../profile-request';
 import { user } from '../user';
 import { AlertService } from '../alert-service';
-import { Document } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
+  templateUrl: '',
   styleUrls: ['./navbar.component.css'],
   providers: [ GithubService, ProfileRequestService, AlertService]
 })
